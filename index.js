@@ -61,4 +61,29 @@ function additionWithoutCarrying(a,b) {
   return +output.join('');
 }
 
-additionWithoutCarrying(456, 1734);
+const task3 = additionWithoutCarrying(456, 1734);
+
+
+// ==========================
+/* #4 https://www.codewars.com/kata/526989a41034285187000de4 */
+
+function ipsBetween(start, end){
+  const startArr = start.split('.');
+  const endArr = end.split('.');
+  let sum = 0;
+
+  for (let i = startArr.length - 1; i >= 0; i--) {
+    let diff;
+    if (+endArr[i] >= +startArr[i]) {
+      diff = endArr[i] - startArr[i]
+    } else {
+      diff = (Number(endArr[i]) + 1) + (255 - startArr[i])
+      endArr[i - 1]--
+    }
+
+    sum = sum + Math.pow(256, startArr.length - i - 1) * diff
+  }
+  return sum;
+}
+
+ipsBetween('8.177.96.88', '128.198.157.130');
