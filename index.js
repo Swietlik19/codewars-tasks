@@ -87,3 +87,31 @@ function ipsBetween(start, end){
 }
 
 ipsBetween('8.177.96.88', '128.198.157.130');
+
+
+// ==========================
+/* #5 https://www.codewars.com/kata/58ff1c8b13b001a5a50005b4 */
+
+var animal = [
+  { name: "Cat", numberOfLegs: 4 },
+  { name: "Snake", numberOfLegs: 0 },
+  { name: "Dog", numberOfLegs: 4 },
+  { name: "Pig", numberOfLegs: 4 },
+  { name: "Human", numberOfLegs: 2 },
+  { name: "Bird", numberOfLegs: 2 }
+]
+
+function sortAnimal(animal) {
+  if (animal === null) return null;
+  animal.sort((a, b) => {
+    if (a.numberOfLegs - b.numberOfLegs < 0) {
+      return -1;
+    } else if (a.numberOfLegs === b.numberOfLegs && a.name < b.name) {
+      return -1;
+    }
+  });
+
+  return animal;
+}
+
+const task5 = sortAnimal(animal);
